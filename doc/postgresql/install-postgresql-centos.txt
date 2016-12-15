@@ -1,0 +1,33 @@
+Instalasi server
+Update repository:
+[root@asset ~]#yum install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
+
+Proses instalasi:
+[root@asset ~]#yum install postgresql94-server postgresql94-contrib
+[root@asset ~]#service postgresql-9.4 initdb
+[root@asset ~]#chkconfig postgresql-9.4 on
+[root@asset ~]#service postgresql-9.4 start
+
+Membuat username dan password
+[root@asset ~]# su - postgres
+-bash-4.1$ createdb dbku
+-bash-4.1$ psql -s dbku
+psql (9.4.5)
+Type "help" for help.
+
+dbku=# create user userku password 'passwordku';
+dbku=# GRANT ALL PRIVILEGES ON DATABASE dbku to userku;
+dbku=#
+  
+Memperbolehkan akses dari local
+[root@asset ~]# vi /var/lib/pgsql/9.4/data/pg_hba.conf :
+Ganti ident dengan trust
+ 
+Restart postgresql
+[root@asset ~]#service postgresql-9.4 stop
+[root@asset ~]#service postgresql-9.4 start
+
+
+yum install postgresql-devel
+export PATH=$PATH:/usr/pgsql-x.x/bin
+

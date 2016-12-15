@@ -1,0 +1,14 @@
+YUM: Thread died in Berkeley DB library, Fatal error
+
+solved : 
+rm /var/lib/rpm/__db*
+
+m: remove regular file `/var/lib/rpm/__db.001'? y
+rm: remove regular file `/var/lib/rpm/__db.002'? y
+rm: remove regular file `/var/lib/rpm/__db.003'? y
+rm: remove regular file `/var/lib/rpm/__db.004'? y
+
+yum update
+
+sudo yum install libxml2 libxml2-devel libxml2-python libxslt libxslt-devel
+pip install lxml
