@@ -12,3 +12,7 @@ yum update
 
 sudo yum install libxml2 libxml2-devel libxml2-python libxslt libxslt-devel
 pip install lxml
+
+sudo yum -y install python-devel libxslt-devel libffi-devel openssl-devel
+sudo yum install libxml2-devel libxml++-devel libxslt-devel
+yum install python-lxml
